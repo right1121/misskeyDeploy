@@ -83,7 +83,7 @@ COPY --chown=misskey:misskey --from=native-builder /misskey/packages/backend/bui
 COPY --chown=misskey:misskey --from=native-builder /misskey/fluent-emojis /misskey/fluent-emojis
 
 COPY --chown=misskey:misskey ./misskey ./
-COPY --chown=misskey:misskey ./default.yml ./.config/
+COPY --chown=misskey:misskey /etc/secrets/default.yml ./.config/
 
 ENV NODE_ENV=production
 HEALTHCHECK --interval=5s --retries=20 CMD ["/bin/bash", "/misskey/healthcheck.sh"]
